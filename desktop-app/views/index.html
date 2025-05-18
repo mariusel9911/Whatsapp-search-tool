@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+  <link rel="stylesheet" href="styles.css">
+  <title>WhatsApp Search Tool</title>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>WhatsApp Search Tool</h1>
+    </header>
+    
+    <div class="import-section">
+      <h2>Import Date</h2>
+      <p>Pentru a începe, importați fișierul JSON exportat din extensia de browser.</p>
+      <div class="button-group">
+        <button id="importBtn" class="primary-btn">Importă date</button>
+        <button id="resetBtn" class="danger-btn">Resetează baza de date</button>
+      </div>
+      <div class="checkbox-group" style="margin-bottom: 15px;">
+        <input type="checkbox" id="deleteOnClose" checked>
+        <label for="deleteOnClose">Șterge baza de date la închiderea aplicației</label>
+      </div>
+      <div id="importStatus" class="status-message"></div>
+    </div>
+    
+    <div class="search-section">
+      <h2>Caută în Conversații</h2>
+      
+      <div class="search-form">
+        <div class="form-group">
+          <label for="dateRange">Perioada:</label>
+          <div class="date-range">
+            <input type="date" id="startDate" placeholder="De la">
+            <span>până la</span>
+            <input type="date" id="endDate" placeholder="Până la">
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label for="keywords">Cuvinte cheie:</label>
+          <input type="text" id="keywords" placeholder="Caută cuvinte sau fraze">
+        </div>
+        
+        <div class="form-group">
+          <label for="chatName">Nume chat:</label>
+          <input type="text" id="chatName" placeholder="Numele conversației">
+        </div>
+        
+        <div class="form-group reaction-group">
+          <div class="checkbox-group">
+            <input type="checkbox" id="hasReaction">
+            <label for="hasReaction">Doar mesaje cu reacții</label>
+          </div>
+          
+          <div class="reaction-filters">
+            <div class="form-group">
+              <label for="reactionEmoji">Emoji reacție:</label>
+              <input type="text" id="reactionEmoji" placeholder="Ex: 👍">
+            </div>
+            
+            <div class="form-group">
+              <label for="reactionBy">Reacție de la:</label>
+              <input type="text" id="reactionBy" placeholder="Numele persoanei">
+            </div>
+          </div>
+        </div>
+        
+        <button id="searchBtn" class="primary-btn">Caută</button>
+      </div>
+      
+      <div class="results-section">
+        <h3>Rezultate <span id="resultCount">(0)</span></h3>
+        <div id="resultsContainer"></div>
+      </div>
+    </div>
+    
+    <footer>
+      <p>WhatsApp Search Tool v1.1 - <span id="dbStatus">Stare: </span></p>
+      <p>Notă: Acest instrument este pentru uz personal și nu are legătură cu WhatsApp Inc.</p>
+    </footer>
+  </div>
+  
+  <script src="renderer.js"></script>
+</body>
+</html>
