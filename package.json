@@ -1,0 +1,49 @@
+{
+  "name": "whatsapp-search-tool",
+  "version": "1.0.0",
+  "description": "Instrument pentru căutarea în conversațiile WhatsApp",
+  "main": "desktop-app/main.js",
+  "scripts": {
+    "start": "electron .",
+    "package": "electron-packager . \"WhatsApp Search Tool\" --platform=win32 --arch=x64 --out=dist --overwrite --ignore=\"browser-extension\" --ignore=\".git\" --asar",
+    "postinstall": "electron-builder install-app-deps",
+    "build": "electron-builder --win",
+    "package-extension": "cd browser-extension && zip -r ../extension.zip *"
+  },
+  "build": {
+    "appId": "com.mariusnistor.whatsapp-search-tool",
+    "productName": "WhatsApp Search Tool",
+    "files": [
+      "**/*",
+      "!browser-extension${/*}",
+      "!**/node_modules/*/{CHANGELOG.md,README.md,README,readme.md,readme}",
+      "!**/node_modules/*/{test,__tests__,tests,powered-test,example,examples}"
+    ],
+    "directories": {
+      "output": "dist"
+    },
+    "win": {
+      "target": [
+        "portable"
+      ],
+      "icon": "build/icon.ico"
+    },
+    "portable": {
+      "artifactName": "WhatsAppSearchTool_Portable.exe"
+    },
+    "npmRebuild": false
+  },
+  "author": "Nistor Marius Ionut",
+  "license": "MIT",
+  "dependencies": {
+    "better-sqlite3": "^8.7.0",
+    "electron-store": "^8.1.0",
+    "sequelize": "^6.32.1",
+    "sqlite3": "^5.1.7"
+  },
+  "devDependencies": {
+    "electron": "^26.2.1",
+    "electron-builder": "^24.6.4",
+    "electron-packager": "^17.1.2"
+  }
+}
