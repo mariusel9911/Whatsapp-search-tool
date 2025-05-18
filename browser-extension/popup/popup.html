@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    body {
+      width: 300px;
+      padding: 10px;
+      font-family: Arial, sans-serif;
+    }
+    .status {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+    .status-indicator {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      margin-right: 10px;
+    }
+    .active {
+      background-color: #4CAF50;
+    }
+    .inactive {
+      background-color: #F44336;
+    }
+    button {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 10px;
+      cursor: pointer;
+    }
+    button:disabled {
+      cursor: not-allowed;
+      opacity: 0.6;
+    }
+    .stats {
+      margin-top: 15px;
+      font-size: 0.9em;
+    }
+    .warning {
+      color: #FF9800;
+      padding: 10px;
+      margin: 10px 0;
+      border-left: 3px solid #FF9800;
+      background-color: #FFF3E0;
+    }
+    .success-message {
+      color: #4CAF50;
+      padding: 10px;
+      margin: 10px 0;
+      border-left: 3px solid #4CAF50;
+      background-color: #E8F5E9;
+    }
+  </style>
+</head>
+<body>
+  <h2>WhatsApp Search Tool</h2>
+  
+  <div class="status">
+    <div id="statusIndicator" class="status-indicator inactive"></div>
+    <span id="statusText">Inactiv</span>
+  </div>
+  
+  <button id="toggleButton">Pornește extragerea</button>
+  <button id="exportButton" disabled>Exportă date pentru aplicația desktop</button>
+  
+  <div class="stats">
+    <p>Mesaje extrase: <span id="messageCount">0</span></p>
+    <p>Ultima actualizare: <span id="lastUpdated">Niciodată</span></p>
+  </div>
+  
+  <p style="font-size: 0.8em; color: #666; margin-top: 15px;">
+    Notă: Pentru rezultate optime, navigați prin conversațiile din care doriți să extrageți date. Extensia va colecta mesajele și reacțiile vizibile.
+  </p>
+  
+  <script src="popup.js"></script>
+</body>
+</html>
