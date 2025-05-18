@@ -148,4 +148,4 @@ This tool is meant for personal use only. Please respect privacy and comply with
 
 ---
 
-Made with ❤️ by [Marius](https://github.com/mariusel9911)
+Made by [mariusel9911](https://github.com/mariusel9911)
